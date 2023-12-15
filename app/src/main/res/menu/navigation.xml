@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navSearchBus"
+        android:icon="@drawable/ic_bus_24"
+        android:title="@string/lbl_search_bus" />
+
+    <item
+        android:id="@+id/navRoutes"
+        android:icon="@drawable/ic_route_24"
+        android:title="@string/lbl_routes" />
+
+    <item
+        android:id="@+id/navPlaces"
+        android:icon="@drawable/ic_place_24"
+        android:title="@string/lbl_places" />
+    <item
+        android:id="@+id/navSettings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/lbl_more" />
+
+</menu>

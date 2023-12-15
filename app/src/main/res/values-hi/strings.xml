@@ -1,0 +1,107 @@
+<resources>
+    <string name="app_name">Jaipur Bus &amp; Tourism</string>
+    <string name="lbl_hindi">हिंदी</string>
+    <string name="lbl_english">English</string>
+    <string name="lbl_change_at">बस बदलें :</string>
+    <string name="msg_change_language_en">Select atleast one language in which you want to access the app.</string>
+    <string name="msg_change_language_hi">कम से कम एक ऐसी भाषा चुनें जिसमें आप ऐप को एक्सेस करना चाहते हैं।</string>
+    <string name="msg_change_language">कम से कम एक ऐसी भाषा चुनें जिसमें आप ऐप को एक्सेस करना चाहते हैं।</string>
+    <string name="lbl_phone_number">Phone</string>
+    <string name="error_phone_required">Phone number required.</string>
+    <string name="error_phone">Invalid phone number.</string>
+    <string name="lbl_search_bus">बस खोजें</string>
+    <string name="lbl_search_station">बस स्टेशन खोजें</string>
+    <string name="lbl_routes">सभी मार्ग</string>
+    <string name="lbl_places">घूमने के स्थान</string>
+    <string name="lbl_settings">सेटिंग्स</string>
+    <string name="lbl_more">अन्य </string>
+    <string name="hint_destination">गंतव्य</string>
+    <string name="hint_password">पासवर्ड</string>
+    <string name="hint_source">प्रस्थान</string>
+    <string name="get_bus">बस खोजें</string>
+    <string name="lbl_metro">मेट्रो</string>
+    <string name="lbl_minibus">मिनी बस</string>
+    <string name="lbl_low_floor">लो फ्लोर</string>
+    <string name="lbl_copyright">© Copyright Jaipur Bus &amp; Tours. All Rights Reserved.\n Version (%1$s)</string>
+    <string name="lbl_version">Version (%1$s)</string>
+    <string name="lbl_route">मार्ग</string>
+    <string name="lbl_direct_bus">सीधी बस:</string>
+    <string name="lbl_multi_bus">मल्टीप्ल बस:</string>
+    <string name="lbl_no">नहीं</string>
+    <string name="lbl_yes">हाँ</string>
+    <string name="lbl_route_list">मार्ग सूची</string>
+    <string name="lbl_route_map">मार्ग नक्शा</string>
+    <string name="lbl_historical">ऐतिहासिक</string>
+    <string name="lbl_hotels">Hotels</string>
+    <string name="lbl_markets">Markets</string>
+    <string name="lbl_shopping_mall">Shopping Mall</string>
+    <string name="lbl_cinema">Cinema</string>
+    <string name="lbl_hospitals">Hospitals</string>
+    <string name="lbl_cafe_restaurent">Cafe &amp; Restaurents</string>
+    <string name="lbl_update_now">अभी अपडेट करें</string>
+    <string name="lbl_ok">ठीक</string>
+    <string name="lbl_change_language">भाषा बदलें</string>
+    <string name="lbl_about_us">हमारे बारे में</string>
+    <string name="lbl_privacy_policy">प्राइवेसी पालिसी </string>
+    <string name="lbl_share">शेयर करें</string>
+    <string name="lbl_contact_us">संपर्क करें</string>
+    <string name="lbl_previous">पहले का</string>
+    <string name="lbl_next">अगला</string>
+    <string name="lbl_address">पता</string>
+    <string name="lbl_about">जानकारी</string>
+    <string name="lbl_submit">सेव करें</string>
+    <string name="lbl_send">भेजे</string>
+    <string name="lbl_full_name">पूरा नाम</string>
+    <string name="lbl_back">वापस जाए</string>
+    <string name="lbl_email_address">ई-मेल एड्रेस</string>
+    <string name="lbl_message_here">मैसेज...</string>
+    <string name="lbl_contact_info">संपर्क जानकारी</string>
+    <string name="lbl_phone"><b>फ़ोन : </b> %1$s</string>
+    <string name="lbl_email"><b>ईमेल : </b> %1$s</string>
+    <string name="lbl_website"><b>वेबसाइट : </b> %1$s</string>
+    <string name="lbl_ticket"><b>टिकट ID : #</b> %1$s</string>
+    <string name="lbl_star">%1$s स्टार</string>
+    <string name="msg_about_us"><b>Jaipur Bus &amp; Tourism</b> जयपुर का पहला शहर ऐप है, जिसका उद्देश्य जयपुर के नागरिकों की जरूरतों और विचारों को पूरा करना है, जबकि गुलाबी शहर के बारे में और दुनिया भर के लोगों को शहर के अंदर परिवहन मार्गों के बारे में बहुमूल्य जानकारी प्रदान करना है। जयपुर बस और amp; पर्यटन हर महीने दस लाख यात्रियों की मदद करने वाला सबसे बड़ा यात्रा मंच है।
+हम हर यात्रा को उनकी सर्वश्रेष्ठ यात्रा पर बनाने की कोशिश कर रहे हैं।
+<br/>
+<b>Jaipur Bus &amp; Tourism</b> एक ऑनलाइन यात्रा मंच है। यह एक ऐसा स्थान है जहां दृढ़ संकल्प और प्रतिबद्धता हमेशा यात्रियों की अपेक्षाओं से अधिक रही है। हम जयपुर के सभी स्थानों के बारे में जानकारी प्रदान करते हैं।
+<br/>
+<b>Jaipur Bus &amp; Tourism</b> कई भाषाओं में उपलब्ध है (अभी तक हिंदी और अंग्रेजी में), इसलिए लोगों के लिए चीजें आसान हो सकती हैं।</string>
+
+    <string name="msg_exit_confirm">क्या आप वाकई बंद करना चाहते हैं?</string>
+    <string name="something_wrong">कुछ गलत हुआ है, दोबारा कोशिश करें।</string>
+    <string name="error_source_dest_required">खोज परिणामों की ओर बढ़ने से पहले प्रस्थान/गंतव्य दर्ज करें।</string>
+    <string name="error_type_required">खोज परिणाम प्राप्त करने के लिए कृपया कम से कम एक विकल्प (मेट्रो/मिनी बस/लो फ्लोर) चुनें।</string>
+    <string name="error_select_state">कृपया राज्य का चयन करें.</string>
+    <string name="error_select_city">कृपया शहर का चयन करें.</string>
+    <string name="error_fullname">कृपया पूरा नाम दर्ज करें।</string>
+    <string name="error_valid_name">कृपया एक मान्य नाम दर्ज करें।</string>
+    <string name="error_email">कृपया ईमेल एड्रेस दर्ज करें।</string>
+    <string name="error_valid_email">कृपया एक मान्य ईमेल एड्रेस दर्ज करें।</string>
+    <string name="error_message">संदेश खाली नहीं हो सकता.</string>
+    <string name="error_valid_message">मैसेज काम से काम 10 शब्दो का  होना चाहिए।</string>
+    <string name="error_no_result">कोई मार्ग नहीं मिला. </string>
+    <string name="msg_share">अभी भी जयपुर शहर में बस मार्गों और स्थानों के बारे में पूछ रहे हैं? अब और नहीं। डाउनलोड करें \'JaipurBus &amp; Tourism\' https://play.google.com/store/apps/details?id=%1$s</string>
+
+    <string name="lbl_share_via">शेयर करें</string>
+    <string name="lbl_get_direction">दिशा देखे</string>
+    <string name="lbl_login">Login</string>
+    <string name="lbl_move_next">आगे बढ़ें</string>
+    <string name="lbl_country">देश</string>
+    <string name="lbl_state">राज्य</string>
+    <string name="lbl_city">शहर</string>
+    <string name="lbl_select_country">देश चुनें</string>
+    <string name="lbl_india">भारत</string>
+    <string name="lbl_other">अन्य</string>
+    <string name="lbl_select_state">राज्य चुनें</string>
+    <string name="lbl_select_city">शहर चुनें</string>
+
+    <string name="default_notification_channel_id">Default</string>
+    <string name="app_update_msg">इस एप्लिकेशन का नया अपडेट उपलब्ध है। कृपया अभी अपग्रेड करें।</string>
+    <string name="admob_app_id">ca-app-pub-7930377749446639~5196825392</string>
+    <string name="admob_unit_id">ca-app-pub-7930377749446639/6405911389</string>
+    <string name="admob_unit_id_intersitial">ca-app-pub-7930377749446639/6233229332</string>
+    <!--  <string name="admob_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
+
+
+  </resources>

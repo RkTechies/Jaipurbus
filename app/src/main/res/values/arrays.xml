@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="array_country">
+        <item>@string/lbl_select_country</item>
+        <item>@string/lbl_india</item>
+        <item>@string/lbl_other</item>
+    </array>
+</resources>

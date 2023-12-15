@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_internet">We think your internet connection is lost.</string>
+    <string name="ok">OK</string>
+    <string name="something_wrong">Something went wrong, try again.</string>
+
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "589575950021",
+    "project_id": "jaipur-bus-and-tourism",
+    "storage_bucket": "jaipur-bus-and-tourism.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589575950021:android:2d4a8fd638921708a06aac",
+        "android_client_info": {
+          "package_name": "jaipurbus.jaipur.tourism.jaipurbus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB4_FsAWV86AsRxN9GC2ikskdS_2tGaMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

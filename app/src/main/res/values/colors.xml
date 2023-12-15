@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#fff1f1</color>
+    <color name="backgroundmiddle">#ed7867</color>
+     <color name="circle_end">#e18942</color>
+    <color name="circle_start">#b95835</color>
+    <color name="colorAccent">#ff6f96</color>
+    <color name="colorAccent_one">#e3f26f91</color>
+    <color name="colorPrimary">#fa5782</color>
+    <color name="colorPrimaryDark">#f24e79</color>
+    <color name="see_detail">#7e2417</color>
+    <color name="white">#ffffff</color>
+    <color name="windowBackground">#ffffff</color>
+    <color name="color_metro_selected">#ffac02</color>
+    <color name="color_minibus_selected">#02e677</color>
+    <color name="color_lowfloor_selected">#fd3631</color>
+    <color name="color_unselected">#eeeeed</color>
+    <color name="grey_light1">#f7f7f7</color>
+    <color name="gray2">#fff2f0f0</color>
+
+    <color name="historicalColor">#f39c12</color>
+    <color name="hotelColor">#ab47bc</color>
+    <color name="marketColor">#2c3e50</color>
+    <color name="cinemaColor">#00b8d4</color>
+    <color name="shoppingColor">#16a085</color>
+    <color name="cafeColor">#f24e79</color>
+    <color name="hospitalColor">#fd3631</color>
+    <color name="inactive_dot">#899da3</color>
+
+</resources>

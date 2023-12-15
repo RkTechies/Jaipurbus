@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_bg"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/app_icon_white"
+                    app:tint="@color/colorAccent" />
+                <com.google.android.gms.ads.AdView
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:id="@+id/adView1"
+                    android:layout_below="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    ads:adSize="BANNER"
+                    ads:adUnitId="@string/admob_unit_id">
+                </com.google.android.gms.ads.AdView>
+
+                <LinearLayout
+                    android:id="@+id/buses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/adView1"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="@dimen/_20dp"
+                    android:layout_marginEnd="34dp"
+                    android:layout_marginBottom="@dimen/_20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:id="@+id/llMetro"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/metroicon"
+                            android:layout_width="52dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_metro" />
+
+                        <com.codersworld.jplibs.customFonts.SBTextViewRegular
+                            android:id="@+id/metro"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_10dp"
+                            android:text="@string/lbl_metro"
+                            android:textColor="@color/color_metro_selected"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llMiniBus"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/minibusicon"
+                            android:layout_width="52dp"
+                            android:layout_height="48dp"
+                            android:layout_centerHorizontal="true"
+                            android:padding="7dp"
+                            android:src="@drawable/ic_minibus" />
+
+                        <com.codersworld.jplibs.customFonts.SBTextViewRegular
+                            android:id="@+id/minibus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:paddingTop="@dimen/_10dp"
+                            android:text="@string/lbl_minibus"
+                            android:textColor="@color/color_minibus_selected"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llLowFloor"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/lowflooricon"
+                            android:layout_width="52dp"
+                            android:layout_height="48dp"
+                            android:padding="7dp"
+                            android:src="@drawable/ic_lowfloor" />
+
+                        <com.codersworld.jplibs.customFonts.SBTextViewRegular
+                            android:id="@+id/lowfloor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_10dp"
+                            android:text="@string/lbl_low_floor"
+                            android:textColor="@color/color_lowfloor_selected"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlSource"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_below="@+id/buses"
+                    android:layout_marginStart="@dimen/_35dp"
+                    android:layout_marginEnd="@dimen/_35dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_layout_source"
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/colorAccent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_source"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:background="@color/white"
+                            android:hint="@string/hint_source"
+                            android:clickable="true"
+                            android:imeOptions="actionSearch"
+                            android:paddingEnd="@dimen/_50dp"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/background"
+                            android:textSize="17dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/imgChange"
+                        android:layout_width="@dimen/_44dp"
+                        android:layout_height="@dimen/_44dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/_10dp"
+                        android:rotation="90"
+                        android:src="@drawable/change_icon"
+                        app:tint="@color/colorAccent" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlDestination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlSource"
+                    android:layout_marginStart="@dimen/_35dp"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:layout_marginEnd="@dimen/_35dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_layout_destination"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/colorAccent">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_destination"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:background="@color/white"
+                            android:hint="@string/hint_destination"
+                            android:clickable="true"
+                            android:imeOptions="actionSearch"
+                            android:paddingEnd="@dimen/_50dp"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/background"
+                            android:textSize="17dp" />
+
+                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/imgChange1"
+                        android:layout_width="@dimen/_44dp"
+                        android:layout_height="@dimen/_44dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/_10dp"
+                        android:rotation="90"
+                        android:src="@drawable/change_icon"
+                        app:tint="@color/colorAccent" />
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_getbus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlDestination"
+                    android:layout_marginStart="@dimen/_35dp"
+                    android:layout_marginTop="@dimen/_35dp"
+                    android:layout_marginEnd="@dimen/_35dp"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/get_bus"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+                <com.google.android.gms.ads.AdView
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:id="@+id/adView"
+                    android:layout_below="@+id/btn_getbus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                     ads:adSize="LARGE_BANNER"
+                    ads:adUnitId="@string/admob_unit_id">
+                </com.google.android.gms.ads.AdView>
+            </RelativeLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_0dp"
+                app:cardElevation="@dimen/_10dp"
+                app:cardMaxElevation="@dimen/_10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize">
+
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:id="@+id/appBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:layout_centerHorizontal="true"
+                            app:elevation="@dimen/_10dp">
+
+                            <androidx.appcompat.widget.Toolbar
+                                android:id="@+id/toolbars"
+                                android:layout_width="@dimen/_44dp"
+                                android:layout_height="?attr/actionBarSize"
+                                android:background="@color/white"
+
+                                app:navigationIcon="@drawable/ic_back"
+                                app:titleTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                                app:titleTextColor="@color/white">
+
+
+                            </androidx.appcompat.widget.Toolbar>
+
+                            <com.codersworld.jplibs.customFonts.SBTextViewBold
+                                android:id="@+id/txtHeader"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="@string/app_name"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_18sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+                    </com.google.android.material.appbar.AppBarLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/_10dp"
+                android:paddingEnd="@dimen/_10dp">
+
+                <EditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:background="@color/white"
+                    android:drawableStart="@drawable/ic_search_24"
+                    android:drawablePadding="@dimen/_5dp"
+                    android:drawableTint="@color/gray"
+                    android:gravity="center_vertical"
+                    android:hint="@string/lbl_search_station" />
+
+                <ImageView
+                    android:id="@+id/imgClear"
+                    android:layout_width="@dimen/_44dp"
+                    android:layout_height="@dimen/_44dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/_8dp"
+                    android:src="@drawable/ic_clear_black_24dp"
+                    app:tint="@color/gray" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRoutes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</layout>

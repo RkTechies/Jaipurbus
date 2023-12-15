@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tlRoutes"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabList"
+                android:layout_width="0dp"
+                android:text="@string/lbl_route_list"
+                android:layout_height="match_parent" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="0dp"
+                android:id="@+id/tabMap"
+                android:text="@string/lbl_route_map"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.codersworld.jplibs.customviews.ZoomClass
+                android:id="@+id/img"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/img_jctsl_map" />
+         </FrameLayout>
+
+    </LinearLayout>
+
+</layout>
