@@ -101,6 +101,7 @@
     <string name="admob_app_id">ca-app-pub-7930377749446639~5196825392</string>
     <string name="admob_unit_id">ca-app-pub-7930377749446639/6405911389</string>
     <string name="admob_unit_id_intersitial">ca-app-pub-7930377749446639/6233229332</string>
+    <string name="admob_unit_id_native">ca-app-pub-7930377749446639~5196825392</string>
     <!--  <string name="admob_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
 
 

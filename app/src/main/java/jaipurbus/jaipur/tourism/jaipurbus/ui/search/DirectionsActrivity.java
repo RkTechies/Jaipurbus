@@ -3418,9 +3418,13 @@ public void onConfigurationChanged(Configuration newConfig) {
         for (int i = 0; i < resultArray.length; i++) {
             result[i] = (String[]) resultArray[i];
         }
-        for (int i = 0; i < noOfResult; i++) {
-            if (result[i][2] == null)
-                countDirectBus++;
+        try {
+            for (int i = 0; i < noOfResult; i++) {
+                if (result[i][2] == null)
+                    countDirectBus++;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
         int data1Index = 0, data2Index = 0, directIndex = 0, multipleIndex = 0;
         BusDirectionBean iteam_data1[] = new BusDirectionBean[countDirectBus];
@@ -3428,34 +3432,38 @@ public void onConfigurationChanged(Configuration newConfig) {
         final String directBusResult[][] = new String[countDirectBus][8];
         final String multipleBusChange[][] = new String[noOfResult - countDirectBus][8];
         for (int i = 0; i < noOfResult; i++) {
-            String stop = "Stops: " + result[i][0];
-            String changeOver = getString(R.string.lbl_change_at)+" " + bus[Integer.parseInt(result[i][1])][Integer.parseInt(result[i][4])];
+          try {
+              String stop = "Stops: " + result[i][0];
+              String changeOver = getString(R.string.lbl_change_at) + " " + bus[Integer.parseInt(result[i][1])][Integer.parseInt(result[i][4])];
 
-            String km = "Distance: " + result[i][5] + "km";
-            int idBus1, idBus2;
-            if (Integer.parseInt(result[i][1]) == bus.length - 1)
-                idBus1 = R.drawable.ic_metro;
+              String km = "Distance: " + result[i][5] + "km";
+              int idBus1, idBus2;
+              if (Integer.parseInt(result[i][1]) == bus.length - 1)
+                  idBus1 = R.drawable.ic_metro;
 
-            else if (Integer.parseInt(result[i][1]) < 23) {
-                idBus1 = R.drawable.ic_lowfloor;
-            } else {
-                idBus1 = R.drawable.ic_minibus;
-            }
-            if (result[i][2] == null) {
-                iteam_data1[data1Index++] = new BusDirectionBean(idBus1, " " + bus[Integer.parseInt(result[i][1])][0] + " ", 9, 9, null, km, stop);
-                directBusResult[directIndex++] = result[i];
-            } else {
-                if (Integer.parseInt(result[i][2]) == bus.length - 1)
-                    idBus2 = R.drawable.ic_metro;
+              else if (Integer.parseInt(result[i][1]) < 23) {
+                  idBus1 = R.drawable.ic_lowfloor;
+              } else {
+                  idBus1 = R.drawable.ic_minibus;
+              }
+              if (result[i][2] == null) {
+                  iteam_data1[data1Index++] = new BusDirectionBean(idBus1, " " + bus[Integer.parseInt(result[i][1])][0] + " ", 9, 9, null, km, stop);
+                  directBusResult[directIndex++] = result[i];
+              } else {
+                  if (Integer.parseInt(result[i][2]) == bus.length - 1)
+                      idBus2 = R.drawable.ic_metro;
 
-                else if (Integer.parseInt(result[i][2]) < 23) {
-                    idBus2 = R.drawable.ic_lowfloor;
-                } else {
-                    idBus2 = R.drawable.ic_minibus;
-                }
-                iteam_data2[data2Index++] = new BusDirectionBean(idBus1, " " + bus[Integer.parseInt(result[i][1])][0] + " ", R.drawable.arrow1, idBus2, " " + bus[Integer.parseInt(result[i][2])][0] + " ", km, changeOver);
-                multipleBusChange[multipleIndex++] = result[i];
-            }
+                  else if (Integer.parseInt(result[i][2]) < 23) {
+                      idBus2 = R.drawable.ic_lowfloor;
+                  } else {
+                      idBus2 = R.drawable.ic_minibus;
+                  }
+                  iteam_data2[data2Index++] = new BusDirectionBean(idBus1, " " + bus[Integer.parseInt(result[i][1])][0] + " ", R.drawable.arrow1, idBus2, " " + bus[Integer.parseInt(result[i][2])][0] + " ", km, changeOver);
+                  multipleBusChange[multipleIndex++] = result[i];
+              }
+          }catch (Exception e){
+              e.printStackTrace();
+          }
         }
         BusDirectionBean noDirectBus[] = new BusDirectionBean[1];
         BusDirectionBean noMultipleBus[] = new BusDirectionBean[1];

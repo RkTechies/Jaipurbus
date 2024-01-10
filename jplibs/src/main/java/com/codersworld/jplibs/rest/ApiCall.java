@@ -379,14 +379,12 @@ public class ApiCall {
         mCall.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                Log.e("success otp","success otp");
                 hitApi();
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 t.printStackTrace();
-                Log.e("failed otp","failed otp");
                 hitApi();
             }
         });

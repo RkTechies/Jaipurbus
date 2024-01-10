@@ -31,7 +31,6 @@ import jaipurbus.jaipur.tourism.jaipurbus.databinding.ActivityPlacesBinding
 import jaipurbus.jaipur.tourism.jaipurbus.ui.BaseActivity
 import jaipurbus.jaipur.tourism.jaipurbus.ui.home.fragments.FragmentFindBus
 import jaipurbus.jaipur.tourism.jaipurbus.ui.places.adapters.PlaceAdapter
-import jaipurbus.jaipur.tourism.jaipurbus.ui.search.DirectionsActrivity
 import jaipurbus.jaipur.tourism.jaipurbus.utils.ApiHelper
 
 class PlacesActivity : BaseActivity() , OnResponse<UniverSelObjct>, OnPlacesListener {
@@ -53,7 +52,7 @@ class PlacesActivity : BaseActivity() , OnResponse<UniverSelObjct>, OnPlacesList
         DatabaseManager.initializeInstance(DatabaseHelper(this@PlacesActivity))
         val database = DatabaseManager.getInstance().openDatabase()
         MobileAds.initialize(this@PlacesActivity) { }
-         if (intent.hasExtra("category_id")){
+        if (intent.hasExtra("category_id")){
             category_id = intent.getStringExtra("category_id") as String
         }
         binding.rvPlaces.layoutManager = LinearLayoutManager(this@PlacesActivity,RecyclerView.VERTICAL,false)
@@ -94,6 +93,7 @@ class PlacesActivity : BaseActivity() , OnResponse<UniverSelObjct>, OnPlacesList
     }
     private var mInterstitialAd: InterstitialAd? = null
     fun loadInterstitialAds() {
+        mInterstitialAd = null;
         val adRequest = AdRequest.Builder().build()
         InterstitialAd.load(this@PlacesActivity,
             getString(R.string.admob_unit_id_intersitial),
@@ -117,10 +117,11 @@ class PlacesActivity : BaseActivity() , OnResponse<UniverSelObjct>, OnPlacesList
     fun moveToNext(mBeanPlace: PlacesBean?,position:Int) {
         startActivity(Intent(this@PlacesActivity,PlaceDetailActivity::class.java).putExtra("place",mBeanPlace).putExtra("position",position))
     }
+    var counter = 0
+
     fun adCallBack(mBeanPlace: PlacesBean?,position:Int) {
         if (mBeanPlace != null ) {
             if (mInterstitialAd != null) {
-                mInterstitialAd!!.show(this@PlacesActivity)
                 mInterstitialAd!!.fullScreenContentCallback = object : FullScreenContentCallback() {
                     override fun onAdClicked() {
                         // Called when a click is recorded for an ad.
@@ -152,6 +153,15 @@ class PlacesActivity : BaseActivity() , OnResponse<UniverSelObjct>, OnPlacesList
                         Log.d(FragmentFindBus.TAG, "Ad showed fullscreen content.")
                     }
                 }
+                counter++
+                if (counter % 2 == 0) {
+                    //Is even
+                    moveToNext(mBeanPlace, position)
+                } else {
+                    mInterstitialAd!!.show(this@PlacesActivity)
+                    //Is odd
+                }
+                //moveToNext(mBeanPlace, position)
             } else {
                 moveToNext(mBeanPlace, position)
                 Log.d("TAG", "The interstitial ad wasn't ready yet.")

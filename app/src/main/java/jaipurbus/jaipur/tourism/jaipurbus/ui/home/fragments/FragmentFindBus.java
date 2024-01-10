@@ -36,10 +36,15 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.google.android.ump.ConsentForm;
+import com.google.android.ump.ConsentInformation;
+import com.google.android.ump.ConsentRequestParameters;
+import com.google.android.ump.UserMessagingPlatform;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import jaipurbus.jaipur.tourism.jaipurbus.R;
 import jaipurbus.jaipur.tourism.jaipurbus.databinding.FragmentFindBusBinding;
@@ -4463,11 +4468,20 @@ public class FragmentFindBus extends Fragment {
     public FragmentFindBus() {
         //if required
     }
+    // Use an atomic boolean to initialize the Google Mobile Ads SDK and load ads once.
+    private final AtomicBoolean isMobileAdsInitializeCalled = new AtomicBoolean(false);
 
+
+
+    private void loadAd(){
+        loadAds(binding.adView);
+        loadAds(binding.adView1);
+    }
     @Override
     public void onResume() {
         super.onResume();
         loadInterstitialAds();
+        loadAd();
        /* inputSource.setText(pref.getString("source", null));
         inputDestination.setText(pref.getString("destination", null));*/
     }
@@ -4500,28 +4514,33 @@ public class FragmentFindBus extends Fragment {
     }
 
     public void loadAds(AdView mView) {
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mView.loadAd(adRequest);
+        if (!mView.isShown()) {
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mView.loadAd(adRequest);
+        }
 
     }
 
+    int counter = 0;
     public void loadInterstitialAds() {
+        mInterstitialAd = null;
         AdRequest adRequest = new AdRequest.Builder().build();
         InterstitialAd.load(requireActivity(), getString(R.string.admob_unit_id_intersitial), adRequest,
+        //InterstitialAd.load(requireActivity(), "ca-app-pub-3940256099942544/1033173712", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                         // The mInterstitialAd reference will be null until
                         // an ad is loaded.
                         mInterstitialAd = interstitialAd;
-                        Log.i(TAG, "onAdLoaded");
+                        Log.e("adsLoad", "onAdLoaded");
                       //  adCallBack();
                     }
 
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                         // Handle the error
-                        Log.d(TAG, loadAdError.toString());
+                        Log.e("adsLoad", loadAdError.toString());
                         mInterstitialAd = null;
                     }
                 });
@@ -4546,7 +4565,6 @@ public class FragmentFindBus extends Fragment {
     public void adCallBack(int resultRow,String[][] result) {
         if(resultRow>0 && result !=null && result.length>0) {
             if (mInterstitialAd != null) {
-                mInterstitialAd.show(requireActivity());
                 mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                     @Override
                     public void onAdClicked() {
@@ -4583,6 +4601,16 @@ public class FragmentFindBus extends Fragment {
                         Log.d(TAG, "Ad showed fullscreen content.");
                     }
                 });
+                counter++;
+                if ( ( counter % 2 ) == 0 ) {
+                    //Is even
+                    moveToNext(resultRow, result);
+                } else {
+                    mInterstitialAd.show(requireActivity());
+                    //Is odd
+                }
+
+                //moveToNext(resultRow, result);
             } else {
                 moveToNext(resultRow, result);
                 Log.d("TAG", "The interstitial ad wasn't ready yet.");
@@ -4591,19 +4619,15 @@ public class FragmentFindBus extends Fragment {
          CommonMethods.errorToast(requireActivity(),getString(R.string.error_no_result));
         }
     }
+    private ConsentInformation consentInformation;
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_find_bus, container, false);
         binding = DataBindingUtil.bind(view);
-        MobileAds.initialize(requireActivity(), new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                Log.e("getAdapterStatusMap", initializationStatus.getAdapterStatusMap().toString());
-            }
-        });
-        loadAds(binding.adView);
-        loadAds(binding.adView1);
+
+        requestConsent();
+
         if (new UserSessions().getLanguage(requireActivity()).equalsIgnoreCase("1")) {
             bus = bus_en;
         } else {
@@ -5131,6 +5155,59 @@ public class FragmentFindBus extends Fragment {
 
         return view;
 
+    }
+
+    private void requestConsent() {
+        // Create a ConsentRequestParameters object.
+        ConsentRequestParameters params = new ConsentRequestParameters
+                .Builder()
+                .build();
+
+        consentInformation = UserMessagingPlatform.getConsentInformation(requireActivity());
+        consentInformation.requestConsentInfoUpdate(
+                requireActivity(),
+                params,
+                (ConsentInformation.OnConsentInfoUpdateSuccessListener) () -> {
+                    UserMessagingPlatform.loadAndShowConsentFormIfRequired(
+                            requireActivity(),
+                            (ConsentForm.OnConsentFormDismissedListener) loadAndShowError -> {
+                                if (loadAndShowError != null) {
+                                    // Consent gathering failed.
+                                    Log.w(TAG, String.format("%s: %s",
+                                            loadAndShowError.getErrorCode(),
+                                            loadAndShowError.getMessage()));
+                                }
+
+                                // Consent has been gathered.
+                                if (consentInformation.canRequestAds()) {
+                                    initializeMobileAdsSdk();
+                                }
+                            }
+                    );
+                },
+                (ConsentInformation.OnConsentInfoUpdateFailureListener) requestConsentError -> {
+                    // Consent gathering failed.
+                    Log.w(TAG, String.format("%s: %s",
+                            requestConsentError.getErrorCode(),
+                            requestConsentError.getMessage()));
+                });
+
+        // Check if you can initialize the Google Mobile Ads SDK in parallel
+        // while checking for new consent information. Consent obtained in
+        // the previous session can be used to request ads.
+        if (consentInformation.canRequestAds()) {
+            initializeMobileAdsSdk();
+        }
+
+    }
+    private void initializeMobileAdsSdk() {
+        MobileAds.initialize(requireActivity(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                Log.e("getAdapterStatusMap", initializationStatus.getAdapterStatusMap().toString());
+            }
+        });
+        loadAd();
     }
 
     private ActivityResultLauncher<Intent> getResult = registerForActivityResult(

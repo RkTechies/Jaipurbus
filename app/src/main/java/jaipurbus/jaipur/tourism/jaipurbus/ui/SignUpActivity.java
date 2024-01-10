@@ -93,7 +93,6 @@ public class SignUpActivity extends AppCompatActivity implements OnResponse<Univ
                         getCity(mListState.get(position).getId() + "");
                         binding.rlCity.setVisibility(View.VISIBLE);
                     } else {
-                        Log.e("asdfs", mListState.get(position).getId() + "");
                         getCity("");
                         binding.rlCity.setVisibility(View.GONE);
                     }
@@ -182,7 +181,6 @@ public class SignUpActivity extends AppCompatActivity implements OnResponse<Univ
             mListState = new ArrayList<>();
         }
         mListState.add(0, new StateBean(0, getString(R.string.lbl_select_state)));
-        Log.e("mCommonBean1", new Gson().toJson(mListState));
         StateAdapter mAdapterState = new StateAdapter(SignUpActivity.this, mListState);
         binding.spState.setAdapter(mAdapterState);
     }
@@ -211,7 +209,6 @@ public class SignUpActivity extends AppCompatActivity implements OnResponse<Univ
                 break;
             case Tags.JB_API_CITY:
                 CommonBean mCommonBean2 = (CommonBean) response.getResponse();
-                Log.e("mCommonBean2", new Gson().toJson(mCommonBean2));
                 if (mCommonBean2 != null && mCommonBean2.getStatus() == 1 && CommonMethods.isValidArrayList(mCommonBean2.getStates())) {
                     mListCity = mCommonBean2.getStates();
                 }
@@ -219,7 +216,6 @@ public class SignUpActivity extends AppCompatActivity implements OnResponse<Univ
                 break;
             case Tags.JB_API_SIGNUP:
                 CommonBean mCommonBean3 = (CommonBean) response.getResponse();
-                Log.e("mCommonBean2", new Gson().toJson(mCommonBean3));
                 if (mCommonBean3 != null && mCommonBean3.getStatus() == 1 && mCommonBean3.getUser() !=null) {
                     UserSessions.saveUserInfo(SignUpActivity.this,mCommonBean3.getUser());
                     CommonMethods.moveWithClear(SignUpActivity.this, MainActivity.class);

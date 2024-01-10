@@ -611,7 +611,7 @@ public class CommonMethods {
     }
 
     public static void showLog(String text) {
-        Log.e("App Name", text);
+        Log.e("Jaipur Bus & Tourisem", text);
     }
 
 

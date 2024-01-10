@@ -80,7 +80,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Log.e("message : " + type, message + "\n" + message1);
+       // Log.e("message : " + type, message + "\n" + message1);
         //this.bitmap1 = getBitmapfromUrl(AppUrls.API_BASE_URL + "assets/images/favicon.png");
         if (type == null || type.isEmpty()) {
             type = "100";
@@ -127,7 +127,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private void sendRegistrationToServer(String token) {
-        Log.e("tokentoken", token);
+        //Log.e("tokentoken", token);
         SharedPreferences.Editor mEditorprefsToken = getSharedPreferences("JB_DEVICE_ID", 0).edit();
         mEditorprefsToken.putString("device_id", token);
         mEditorprefsToken.commit();
@@ -144,8 +144,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationManager notificationManagero = (NotificationManager) baseContext.getSystemService(NOTIFICATION_SERVICE);
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(2);
         if (type.equalsIgnoreCase("10")) {
-            Log.e("conddi", "14");
-
         } else {
             String str5 = strInfo;
             Intent intent3 = null;

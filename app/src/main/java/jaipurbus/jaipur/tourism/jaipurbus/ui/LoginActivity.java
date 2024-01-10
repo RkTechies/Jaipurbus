@@ -69,7 +69,6 @@ public class LoginActivity extends BaseActivity implements OnResponse<UniverSelO
         switch (response.getMethodname()) {
             case Tags.JB_API_LOGIN:
                 CommonBean mCommonBean1 = (CommonBean) response.getResponse();
-                Log.e("mCommonBean1", new Gson().toJson(mCommonBean1));
                 if (mCommonBean1 != null && mCommonBean1.getStatus()==1) {
                     UserSessions.saveUserInfo(LoginActivity.this,mCommonBean1.getUser());
                     CommonMethods.moveWithClear(LoginActivity.this, MainActivity.class);
