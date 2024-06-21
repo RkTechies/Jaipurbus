@@ -1,12 +1,12 @@
 package jaipurbus.jaipur.tourism.jaipurbus.ui
 
 import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+ import android.os.Bundle
 import android.os.Handler
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.codersworld.jplibs.storage.AppHelper
 import com.codersworld.jplibs.storage.UserSessions
 import com.codersworld.jplibs.utils.CommonMethods

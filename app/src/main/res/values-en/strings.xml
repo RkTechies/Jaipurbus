@@ -87,11 +87,14 @@ We are trying to make every trip on their best trip.
     <string name="lbl_login">Login</string>
     <string name="lbl_move_next">Next</string>
     <string name="lbl_country">Country</string>
+    <string name="lbl_gender">Gender</string>
     <string name="lbl_state">State</string>
     <string name="lbl_city">City</string>
     <string name="lbl_select_country">Select Country</string>
     <string name="lbl_india">India</string>
     <string name="lbl_other">Other</string>
+    <string name="lbl_male">Male</string>
+    <string name="lbl_female">Female</string>
     <string name="lbl_select_state">Select State</string>
     <string name="lbl_select_city">Select City</string>
 

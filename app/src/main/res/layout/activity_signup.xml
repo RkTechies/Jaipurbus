@@ -15,7 +15,6 @@
             android:layout_height="match_parent"
             android:scaleType="fitXY"
             android:src="@drawable/login_bg" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,6 +28,9 @@
                 android:shadowColor="#9CFFFFFF"
                 app:cardBackgroundColor="#9CFFFFFF"
                 app:cardCornerRadius="@dimen/_5dp">
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -84,7 +86,6 @@
                                 android:backgroundTint="@color/transparent"
                                 android:imeOptions="actionNext"
                                 android:lines="1"
-
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimary"
                                 android:textColorHint="@color/colorPrimary"
@@ -198,6 +199,42 @@
                                 android:textStyle="normal" />
 
                         </com.google.android.material.textfield.TextInputLayout>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_edittext"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="?attr/actionBarSize"
+                                android:layout_height="?attr/actionBarSize"
+                                android:padding="@dimen/_15dp"
+                                android:src="@drawable/ic_gender"
+                                app:tint="@color/colorPrimary" />
+
+                            <Spinner
+                                android:id="@+id/spGender"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:backgroundTint="@color/colorPrimary"
+                                android:entries="@array/array_gender"
+                                android:popupBackground="#E9DDCF"
+                                tools:listitem="@layout/item_country" />
+                        </LinearLayout>
+
+                        <com.codersworld.jplibs.customFonts.SBTextViewRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20dp"
+                            android:background="#E9DDCF"
+                            android:text="@string/lbl_gender"
+                            android:textColor="@color/colorPrimaryDark" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -342,8 +379,9 @@
                         android:textSize="@dimen/_16sp" />
 
                 </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
             </androidx.cardview.widget.CardView>
-        </LinearLayout>
+     </LinearLayout>
 
     </RelativeLayout>
 </layout>

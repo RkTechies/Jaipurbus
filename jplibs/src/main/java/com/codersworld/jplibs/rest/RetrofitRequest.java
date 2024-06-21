@@ -53,29 +53,7 @@ public class RetrofitRequest {
         }
         return retrofit;
     }
-    private static OkHttpClient getOkHttpClient1() {
-        OkHttpClient.Builder okClientBuilder = new OkHttpClient.Builder();
-        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-            @Override
-            public void log(String message) {
-             //   Log.e("APIresponse", "" + message);
-            }
-        });
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        okClientBuilder.addInterceptor(httpLoggingInterceptor);
-        okClientBuilder.connectTimeout(1000, TimeUnit.SECONDS);
-        okClientBuilder.readTimeout(1000, TimeUnit.SECONDS);
-        okClientBuilder.writeTimeout(1000, TimeUnit.SECONDS);
-       /* okClientBuilder.addInterceptor(new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Request request = chain.request().newBuilder().addHeader("token", "" + token).build();
-                return chain.proceed(request);
-            }
-        });*/
-        return okClientBuilder.build();
-    }
-    public static OkHttpClient getUnsafeOkHttpClient() {
+     public static OkHttpClient getUnsafeOkHttpClient() {
         try {
             // Create a trust manager that does not validate certificate chains
             final TrustManager[] trustAllCerts = new TrustManager[]{

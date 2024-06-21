@@ -5,4 +5,9 @@
         <item>@string/lbl_india</item>
         <item>@string/lbl_other</item>
     </array>
+    <array name="array_gender">
+        <item>@string/lbl_male</item>
+        <item>@string/lbl_female</item>
+        <item>@string/lbl_other</item>
+    </array>
 </resources>

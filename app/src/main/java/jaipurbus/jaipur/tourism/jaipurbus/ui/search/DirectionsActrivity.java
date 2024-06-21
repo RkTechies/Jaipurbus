@@ -3370,14 +3370,14 @@ public class DirectionsActrivity extends BaseActivity implements OnStationSelect
     };
 
 
-/*    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        ApiHelper.setApplicationlanguage(this,UserSessions().getLanguage(this))
-    }*/
-public void onConfigurationChanged(Configuration newConfig) {
-    super.onConfigurationChanged(newConfig);
-    new ApiHelper(this).setApplicationlanguage(this, new UserSessions().getLanguage(this));
-}
+    /*    override fun onConfigurationChanged(newConfig: Configuration) {
+            super.onConfigurationChanged(newConfig)
+            ApiHelper.setApplicationlanguage(this,UserSessions().getLanguage(this))
+        }*/
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        new ApiHelper(this).setApplicationlanguage(this, new UserSessions().getLanguage(this));
+    }
 
     String[][] bus = new String[bus_en.length][];
 
@@ -3423,7 +3423,7 @@ public void onConfigurationChanged(Configuration newConfig) {
                 if (result[i][2] == null)
                     countDirectBus++;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         int data1Index = 0, data2Index = 0, directIndex = 0, multipleIndex = 0;
@@ -3432,38 +3432,40 @@ public void onConfigurationChanged(Configuration newConfig) {
         final String directBusResult[][] = new String[countDirectBus][8];
         final String multipleBusChange[][] = new String[noOfResult - countDirectBus][8];
         for (int i = 0; i < noOfResult; i++) {
-          try {
-              String stop = "Stops: " + result[i][0];
-              String changeOver = getString(R.string.lbl_change_at) + " " + bus[Integer.parseInt(result[i][1])][Integer.parseInt(result[i][4])];
+            if (i < result.length) {
+                try {
+                    String stop = "Stops: " + result[i][0];
+                    String changeOver = getString(R.string.lbl_change_at) + " " + bus[Integer.parseInt(result[i][1])][Integer.parseInt(result[i][4])];
 
-              String km = "Distance: " + result[i][5] + "km";
-              int idBus1, idBus2;
-              if (Integer.parseInt(result[i][1]) == bus.length - 1)
-                  idBus1 = R.drawable.ic_metro;
+                    String km = "Distance: " + result[i][5] + "km";
+                    int idBus1, idBus2;
+                    if (Integer.parseInt(result[i][1]) == bus.length - 1)
+                        idBus1 = R.drawable.ic_metro;
 
-              else if (Integer.parseInt(result[i][1]) < 23) {
-                  idBus1 = R.drawable.ic_lowfloor;
-              } else {
-                  idBus1 = R.drawable.ic_minibus;
-              }
-              if (result[i][2] == null) {
-                  iteam_data1[data1Index++] = new BusDirectionBean(idBus1, " " + bus[Integer.parseInt(result[i][1])][0] + " ", 9, 9, null, km, stop);
-                  directBusResult[directIndex++] = result[i];
-              } else {
-                  if (Integer.parseInt(result[i][2]) == bus.length - 1)
-                      idBus2 = R.drawable.ic_metro;
+                    else if (Integer.parseInt(result[i][1]) < 23) {
+                        idBus1 = R.drawable.ic_lowfloor;
+                    } else {
+                        idBus1 = R.drawable.ic_minibus;
+                    }
+                    if (result[i][2] == null) {
+                        iteam_data1[data1Index++] = new BusDirectionBean(idBus1, " " + bus[Integer.parseInt(result[i][1])][0] + " ", 9, 9, null, km, stop);
+                        directBusResult[directIndex++] = result[i];
+                    } else {
+                        if (Integer.parseInt(result[i][2]) == bus.length - 1)
+                            idBus2 = R.drawable.ic_metro;
 
-                  else if (Integer.parseInt(result[i][2]) < 23) {
-                      idBus2 = R.drawable.ic_lowfloor;
-                  } else {
-                      idBus2 = R.drawable.ic_minibus;
-                  }
-                  iteam_data2[data2Index++] = new BusDirectionBean(idBus1, " " + bus[Integer.parseInt(result[i][1])][0] + " ", R.drawable.arrow1, idBus2, " " + bus[Integer.parseInt(result[i][2])][0] + " ", km, changeOver);
-                  multipleBusChange[multipleIndex++] = result[i];
-              }
-          }catch (Exception e){
-              e.printStackTrace();
-          }
+                        else if (Integer.parseInt(result[i][2]) < 23) {
+                            idBus2 = R.drawable.ic_lowfloor;
+                        } else {
+                            idBus2 = R.drawable.ic_minibus;
+                        }
+                        iteam_data2[data2Index++] = new BusDirectionBean(idBus1, " " + bus[Integer.parseInt(result[i][1])][0] + " ", R.drawable.arrow1, idBus2, " " + bus[Integer.parseInt(result[i][2])][0] + " ", km, changeOver);
+                        multipleBusChange[multipleIndex++] = result[i];
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
         BusDirectionBean noDirectBus[] = new BusDirectionBean[1];
         BusDirectionBean noMultipleBus[] = new BusDirectionBean[1];
@@ -3578,9 +3580,9 @@ public void onConfigurationChanged(Configuration newConfig) {
                     }
                     if (Integer.parseInt(multipleBusChange[z][2]) == bus.length - 1) {
                         bustype2 = 3;
-                    }else if (Integer.parseInt(multipleBusChange[z][2]) >= 23) {
+                    } else if (Integer.parseInt(multipleBusChange[z][2]) >= 23) {
                         bustype2 = 2;
-                    }else {
+                    } else {
                         bustype2 = 1;
                     }
                     z = position;

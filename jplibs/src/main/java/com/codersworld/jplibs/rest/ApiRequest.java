@@ -49,7 +49,7 @@ public interface ApiRequest {
 
     @FormUrlEncoded
     @POST(Tags.JB_API_SIGNUP)
-    Call<CommonBean> makeSignup(@Field("phone") String strPhone,@Field("email") String email,@Field("name") String name,@Field("country") String country,@Field("state") String state,@Field("city") String city,@Field("device_id") String device_id,@Field("fcm_id") String fcm_id);
+    Call<CommonBean> makeSignup(@Field("phone") String strPhone,@Field("email") String email,@Field("name") String name,@Field("country") String country,@Field("state") String state,@Field("city") String city,@Field("device_id") String device_id,@Field("fcm_id") String fcm_id,@Field("gender") String gender);
 
     @FormUrlEncoded
     @POST("ajax.php?action=userLogin")

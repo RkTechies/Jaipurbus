@@ -282,7 +282,7 @@ public class ApiCall {
             }
         }
         ApiRequest mRequest = RetrofitRequest.getRetrofitInstance(1, 2).create(ApiRequest.class);
-        mRequest.makeSignup(params[0],params[1],params[2],params[3],params[4],params[5], CommonMethods.getIMEI(mContext), params[6]).enqueue(new Callback<CommonBean>() {
+        mRequest.makeSignup(params[0],params[1],params[2],params[3],params[4],params[5], CommonMethods.getIMEI(mContext), params[6], params[7]).enqueue(new Callback<CommonBean>() {
             @Override
             public void onResponse(Call<CommonBean> call, Response<CommonBean> response) {
                 if (isTrue) {

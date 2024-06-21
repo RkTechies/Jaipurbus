@@ -7,14 +7,14 @@ plugins {
 
 android {
     namespace 'jaipurbus.jaipur.tourism.jaipurbus'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "jaipurbus.jaipur.tourism.jaipurbus"
         minSdk 23
-        targetSdk 33
-        versionCode 13
-        versionName "1.0.13"
+        targetSdk 34
+        versionCode 14
+        versionName "1.0.14"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -83,8 +83,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-messaging-directboot:20.2.0'
     implementation 'com.google.firebase:firebase-messaging'
-    implementation 'com.google.android.play:app-update-ktx:2.0.1'
-    implementation 'com.google.android.gms:play-services-ads:22.6.0'
+    implementation 'com.google.android.play:app-update:2.1.0'
+     implementation 'com.google.android.gms:play-services-ads:22.6.0'
     implementation 'com.google.android.ump:user-messaging-platform:2.1.0'
     implementation("com.google.android.ump:user-messaging-platform:2.1.0")
 

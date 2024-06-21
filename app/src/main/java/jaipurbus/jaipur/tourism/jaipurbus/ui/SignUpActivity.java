@@ -61,6 +61,8 @@ public class SignUpActivity extends AppCompatActivity implements OnResponse<Univ
         binding.txtVersion.setText(getString(R.string.lbl_version, new Global().getVersionName(SignUpActivity.this)));
         ArrayAdapter mAdapter = ArrayAdapter.createFromResource(SignUpActivity.this, R.array.array_country, R.layout.item_country);
         binding.spCountry.setAdapter(mAdapter);
+        ArrayAdapter mAdapter1 = ArrayAdapter.createFromResource(SignUpActivity.this, R.array.array_gender, R.layout.item_country);
+        binding.spGender.setAdapter(mAdapter1);
         binding.spCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -133,6 +135,7 @@ public class SignUpActivity extends AppCompatActivity implements OnResponse<Univ
                 String name =binding.etName.getText().toString();
                 String phone = binding.etPhone.getText().toString();
                 String email = binding.etEmail.getText().toString();
+                String gender = (binding.spGender.getSelectedItemPosition()==0)?"Male":((binding.spGender.getSelectedItemPosition()==1)?"Female":"Other");
                 if (!CommonMethods.isValidString(name)) {
                     CommonMethods.setError(binding.etName, SignUpActivity.this, getString(R.string.error_fullname), getString(R.string.error_fullname));
                 } else if (!CommonMethods.checkPhone(phone)) {
@@ -147,10 +150,10 @@ public class SignUpActivity extends AppCompatActivity implements OnResponse<Univ
                             CommonMethods.errorDialog(SignUpActivity.this,getString(R.string.error_select_city),getString(R.string.app_name),getString(R.string.lbl_ok));
                         }else{
                             //@Field(" ") String  ,@Field("") String  ,@Field("") String  ,@Field("") String state,@Field("city") String city,@Field("device_id") String device_id,@Field("fcm_id") String fcm_id
-                            new ApiCall(SignUpActivity.this).makeSignup(SignUpActivity.this, true,  phone,email,name,country,state,city, device_id);
+                            new ApiCall(SignUpActivity.this).makeSignup(SignUpActivity.this, true,  phone,email,name,country,state,city, device_id,gender);
                         }
                     }else{
-                        new ApiCall(SignUpActivity.this).makeSignup(SignUpActivity.this, true,  phone,email,name,country,state,city, device_id);
+                        new ApiCall(SignUpActivity.this).makeSignup(SignUpActivity.this, true,  phone,email,name,country,state,city, device_id,gender);
                     }
                 }
             }
